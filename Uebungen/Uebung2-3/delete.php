@@ -16,20 +16,28 @@ try {
   die();
 }
 
-$id = $_GET['customer_id'];
+$id = $_GET['id'];
 
 if (!$id) {
   die('Keine ID vorhanden');
 }
 
-$sql = "DELETE FROM orders WHERE customer_id = :id";
-$statement = $conn->prepare($sql);
-
 $params = [
   ':id' => $id
 ];
 
+$statement = $conn->prepare("SELECT customer_id FROM orders WHERE orders.id = :id;");
+$statement->execute($params);
+$customerId = $statement->fetch()['customer_id'];
+
+$statement = $conn->prepare("DELETE FROM order_details WHERE order_details.order_id = :id;");
 $statement->execute($params);
 
-$result = $statement->fetchAll();
+$statement = $conn->prepare("DELETE FROM invoices WHERE invoices.order_id = :id;");
+$statement->execute($params);
+
+$statement = $conn->prepare("DELETE FROM orders WHERE orders.id = :id;");
+$statement->execute($params);
+
+header("Location: http://127.0.0.1:8000/bestellungen.php?id=$customerId");
 ?>
