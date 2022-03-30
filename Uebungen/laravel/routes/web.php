@@ -18,3 +18,5 @@ Route::get('/', function () {
 });
 
 Route::get('/products', [\App\Http\Controllers\ProductController::class, 'list']);
+
+Route::get('/product/:id', [\App\Http\Controllers\ProductController::class, 'detail']);
