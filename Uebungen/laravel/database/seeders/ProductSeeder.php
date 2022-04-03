@@ -12,18 +12,18 @@ class ProductSeeder extends Seeder
     public function run()
     {
         Product::create([
-            'name' => 'FC Bayern München 21/22 Heimtrikot',
-            'price' => 100.00,
-            'details' => 'Klassisches Heimtrikot des FC Bayern mit den Vereinsfarben rot und weiss, erstmals mit Fünf Sternen',
-            'manual' => 'Spielername auf der Rückseite',
-            'image' => 'images\BayernHome2122.jpg'
+            'name' => 'Blumentopf',
+            'price' => 8.50,
+            'details' => 'Einfacher Blumentopf, leicht zerbrechlich',
+            'manual' => 'Verwendbar für Blumen und andere Pflanzen',
+            'image' => 'images\topf.jpg'
         ]);
         Product::create([
-            'name' => 'FC Bayern München 21/22 Auswärtstrikot',
-            'price' => 100.00,
-            'details' => 'Das diesjährige Auswärtstrikot des FC Bayern in schwarz und gold',
-            'manual' => 'Spielername auf der Rückseite',
-            'image' => 'images\BayernAway2122.jpg'
+            'name' => 'Kleinhacke',
+            'price' => 32.50,
+            'details' => 'Gefertigt aus hochwertigsten Spezialstählen und heimischer Esche',
+            'manual' => 'Trennt Wurzeln und lockert den Boden',
+            'image' => 'images\kleinhacke.jpg'
         ]);
     }
 }
